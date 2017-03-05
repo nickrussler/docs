@@ -126,13 +126,15 @@ Change following configuration options in `custom/conf/app.ini` in the section t
 [server]
 PROTOCOL = https
 ROOT_URL = https://try.gogs.io/
-CERT_FILE = custom/https/unified.cert
-KEY_FILE = custom/https/decryped-private.key
+CERT_FILE = custom/https/cert.pem
+KEY_FILE = custom/https/key.pem
 ```
 
 If you want to use self-signed HTTPS, you can execute the following command to generate a certificate and key files (make sure you use `cert` build tag or download the official binary):
 
 	$ ./gogs cert -ca=true -duration=8760h0m0s -host=myhost.example.com
+	
+This creates the cert.pem and key.pem in the working directory.
 
 If you want to use SSL with an Apache 2 proxy configuration, configure gogs to use http and Apache 2 for SSL.
 
